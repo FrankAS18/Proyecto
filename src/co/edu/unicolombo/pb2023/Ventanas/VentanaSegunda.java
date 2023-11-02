@@ -6,6 +6,8 @@ import co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos.VentanaRetirarS
 import co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos.VentanaConsultarSaldo;
 import co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos.VentanaReportePorRecarga;
 import co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos.VentanaReportePorRetiro;
+import co.edu.unicolombo.pb2023.Ventanas.VentanaAyuda;
+
 import javax.swing.JOptionPane;
 
 public class VentanaSegunda extends javax.swing.JFrame {
@@ -62,7 +64,7 @@ public class VentanaSegunda extends javax.swing.JFrame {
         menuCerrarsesion = new javax.swing.JMenu();
         itemCerrar = new javax.swing.JMenuItem();
         menuAyuda = new javax.swing.JMenu();
-        jMenuItem16 = new javax.swing.JMenuItem();
+        ItemAyuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("APP DE APUESTAS DEPORTIVAS\n");
@@ -330,9 +332,14 @@ public class VentanaSegunda extends javax.swing.JFrame {
         menuAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/help_question_1566.png"))); // NOI18N
         menuAyuda.setText("Ayuda");
 
-        jMenuItem16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/acceso.png"))); // NOI18N
-        jMenuItem16.setText("Entrar...");
-        menuAyuda.add(jMenuItem16);
+        ItemAyuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/acceso.png"))); // NOI18N
+        ItemAyuda.setText("Entrar...");
+        ItemAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItemAyudaActionPerformed(evt);
+            }
+        });
+        menuAyuda.add(ItemAyuda);
 
         barraMenus.add(menuAyuda);
 
@@ -475,6 +482,13 @@ public class VentanaSegunda extends javax.swing.JFrame {
         recarga.setVisible(true);
     }//GEN-LAST:event_itemReportePorRecargaActionPerformed
 
+    private void ItemAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItemAyudaActionPerformed
+        // TODO add your handling code here:
+        VentanaAyuda ayuda = new VentanaAyuda(this, rootPaneCheckingEnabled);
+        ayuda.setLocationRelativeTo(null);
+        ayuda.setVisible(true);   
+    }//GEN-LAST:event_ItemAyudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -514,6 +528,7 @@ public class VentanaSegunda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem ItemAyuda;
     private javax.swing.JMenuBar barraMenus;
     private javax.swing.JMenuItem itemCerrar;
     private javax.swing.JMenuItem itemConsultarUsuario;
@@ -535,7 +550,6 @@ public class VentanaSegunda extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
