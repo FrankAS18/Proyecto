@@ -6,13 +6,13 @@ import co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos.VentanaRetirarS
 import co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos.VentanaConsultarSaldo;
 import co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos.VentanaReportePorRecarga;
 import co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos.VentanaReportePorRetiro;
-import co.edu.unicolombo.pb2023.Ventanas.VentanaAyuda;
+import co.edu.unicolombo.pb2023.VentanasParaApuestasDP.VentanaPrincipalParaApuestas_DP;
 
 import javax.swing.JOptionPane;
 
 public class VentanaSegunda extends javax.swing.JFrame {
     /**
-     * Creates new form VentanaPrincipal
+     * Creates new form VentanaPrincipalParaApuestas_DP
      */
     public VentanaSegunda() {
         initComponents();
@@ -53,7 +53,7 @@ public class VentanaSegunda extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         menuApuestas = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
+        itemApuestasAbiertas = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         itemRecargarSaldo = new javax.swing.JMenuItem();
         itemRetirarSaldo = new javax.swing.JMenuItem();
@@ -96,7 +96,7 @@ public class VentanaSegunda extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(129, 129, 129)
                 .addComponent(titulo)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         barraMenus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -217,6 +217,11 @@ public class VentanaSegunda extends javax.swing.JFrame {
 
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/baloncesto.png"))); // NOI18N
         jMenuItem2.setText("Baloncesto...");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tenis.png"))); // NOI18N
@@ -251,9 +256,14 @@ public class VentanaSegunda extends javax.swing.JFrame {
         menuApuestas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cash_icon-icons.com_51090.png"))); // NOI18N
         menuApuestas.setText("Apuestas Abiertas");
 
-        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/apuesta.png"))); // NOI18N
-        jMenuItem12.setText("Apuestas...");
-        menuApuestas.add(jMenuItem12);
+        itemApuestasAbiertas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/apuesta.png"))); // NOI18N
+        itemApuestasAbiertas.setText("Apuestas...");
+        itemApuestasAbiertas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemApuestasAbiertasActionPerformed(evt);
+            }
+        });
+        menuApuestas.add(itemApuestasAbiertas);
 
         barraMenus.add(menuApuestas);
 
@@ -444,6 +454,7 @@ public class VentanaSegunda extends javax.swing.JFrame {
         VentanaInicioSecion inicio = new VentanaInicioSecion(this, rootPaneCheckingEnabled);
         inicio.setLocationRelativeTo(null);
         inicio.setVisible(true); 
+        VentanaSegunda.this.dispose();
  
     }//GEN-LAST:event_itemCerrarActionPerformed
 
@@ -489,6 +500,17 @@ public class VentanaSegunda extends javax.swing.JFrame {
         ayuda.setVisible(true);   
     }//GEN-LAST:event_ItemAyudaActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void itemApuestasAbiertasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemApuestasAbiertasActionPerformed
+        // TODO add your handling code here:
+        VentanaPrincipalParaApuestas_DP apuestas = new VentanaPrincipalParaApuestas_DP(this, rootPaneCheckingEnabled);
+        apuestas.setLocationRelativeTo(null);
+        apuestas.setVisible(true);
+    }//GEN-LAST:event_itemApuestasAbiertasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -530,6 +552,7 @@ public class VentanaSegunda extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ItemAyuda;
     private javax.swing.JMenuBar barraMenus;
+    private javax.swing.JMenuItem itemApuestasAbiertas;
     private javax.swing.JMenuItem itemCerrar;
     private javax.swing.JMenuItem itemConsultarUsuario;
     private javax.swing.JMenuItem itemEditarDatos;
@@ -549,7 +572,6 @@ public class VentanaSegunda extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

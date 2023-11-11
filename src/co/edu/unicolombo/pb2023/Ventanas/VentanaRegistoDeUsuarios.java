@@ -241,76 +241,53 @@ public class VentanaRegistoDeUsuarios extends javax.swing.JDialog {
     }
     
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
-        // Crear un usuario predefinido
-//        Usuario usuarioPredefinido = new Usuario();
-//        usuarioPredefinido.nombre = "andrea carolina";
-//        usuarioPredefinido.apellidos = "menco martinez";
-//        usuarioPredefinido.documento = "1051738020";
-//        usuarioPredefinido.telefono = "3015434633";
-//        usuarioPredefinido.correo = "usuario@ejemplo.com";
-//        usuarioPredefinido.contraseña = "contraseña123";
-        // Obtengo los valores de los campos de texto
-        String nombres = txtNombreUsuario.getText();
-        String apellidos = txtApellidoUsuario.getText();
-        String documento = txtDocumentoUsuario.getText();
-        String telefono = txtTelefonoUsuario.getText();
-        String correo = txtCorreoUsuario.getText();
-        char[] contraseña = txtContraseñaUsuario.getPassword();
-        String clave = String.copyValueOf(contraseña);
-        
-        // Verifico la longitud de los campos
-        if (nombres.matches("[a-zA-Z]+") || nombres.length() > 255) {
-            JOptionPane.showMessageDialog(null, "El nombre no puede superar los 255 caracteres y solo debe llevar letras.");
-            txtNombreUsuario.setText("");
-        } else if (apellidos.matches("[a-zA-Z]+") || apellidos.length() > 255) {
-            JOptionPane.showMessageDialog(null, "El apellido no puede superar los 255 caracteres y solo debe llevar letras.");
-            txtApellidoUsuario.setText("");
-        } else if (documento.matches("\\d+") || documento.length() > 20) { // Limito el documento a 20 caracteres
-            JOptionPane.showMessageDialog(null, "El número de documento no puede superar los 20 caracteres.");
-            txtDocumentoUsuario.setText("");
-        } else if (!telefono.matches("\\d{7,}") || telefono.length() > 15) {
-            JOptionPane.showMessageDialog(null, "El número de teléfono debe ser numérico y tener entre 7 y 15 caracteres.");
-            txtTelefonoUsuario.setText("");
-        } else if (!ValidarEmail(correo)) {
-            JOptionPane.showMessageDialog(null, "Por favor, ingrese un correo electrónico válido.");
-            txtCorreoUsuario.setText("");
-        } else if (nombres.isEmpty() || apellidos.isEmpty() || documento.isEmpty() ||
-                   telefono.isEmpty() || correo.isEmpty() ||
-                   contraseña.length == 0) {
-            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos antes de guardar la información.");
-        } else {
-            
+            // Obtengo los valores de los campos de texto
+            String nombres = txtNombreUsuario.getText();
+            String apellidos = txtApellidoUsuario.getText();
+            String documento = txtDocumentoUsuario.getText();
+            String telefono = txtTelefonoUsuario.getText();
+            String correo = txtCorreoUsuario.getText();
+            char[] contraseña = txtContraseñaUsuario.getPassword();
+            String clave = String.copyValueOf(contraseña);
+
+            // Verifico la longitud de los campos y otros criterios
+            if (nombres.isEmpty() || !nombres.matches("[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ ]+") || nombres.length() > 255) {
+                JOptionPane.showMessageDialog(null, "El nombre no puede estar vacío, debe llevar solo letras y no superar los 255 caracteres.");
+            } else if (apellidos.isEmpty() || !apellidos.matches("[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ ]+") || apellidos.length() > 255) {
+                JOptionPane.showMessageDialog(null, "El apellido no puede estar vacío, debe llevar solo letras y no superar los 255 caracteres.");
+            } else if (documento.isEmpty() || !documento.matches("\\d+") || documento.length() > 20) {
+                JOptionPane.showMessageDialog(null, "El número de documento no puede estar vacío, debe ser numérico y no superar los 20 caracteres.");
+            } else if (telefono.isEmpty() || !telefono.matches("\\d{7,}") || telefono.length() > 15) {
+                JOptionPane.showMessageDialog(null, "El número de teléfono no puede estar vacío, debe ser numérico y tener entre 7 y 15 caracteres.");
+            } else if (correo.isEmpty() || !ValidarEmail(correo)) {
+                JOptionPane.showMessageDialog(null, "El correo electrónico no puede estar vacío y debe ser válido.");
+            } else if (clave.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La contraseña no puede estar vacía.");
+            } else {
             // Creo un objeto Usuario y almaceno la información
             Usuario usuario = new Usuario();
-//            usuario.nombre  =  nombres = "andrea carolina";
-//            usuario.apellidos = apellidos = "menco martinez";
-//            usuario.documento = documento = "1051738020";
-//            usuario.telefono = telefono = "3015434633";
-//            usuario.correo = correo = "usuario@ejemplo.com";
-//            usuario.contraseña = contraseña.toString().concat( "contraseña123");
             usuario.nombre = nombres;
             usuario.apellidos = apellidos;
             usuario.documento = documento;
             usuario.telefono = telefono;
             usuario.correo = correo;
             usuario.contraseña = clave;
-            
+
             // Verifico si ya existe un usuario con la misma información
             if (Usuario.usuariosBD == null) {
                 Usuario.usuariosBD = new HashMap<>();
             }
             if (Usuario.usuariosBD.containsKey(correo) || Usuario.usuariosBD.containsKey(documento)) {
-                JOptionPane.showMessageDialog(null, "Existe un Usuario previamente registrado con esos datos " + documento);
+                JOptionPane.showMessageDialog(null, "Existe un usuario previamente registrado con esos datos.");
             } else {
                 // Almaceno al usuario en la base de datos
                 Usuario.usuariosBD.put(correo, usuario);
-                Usuario.usuariosBD.containsKey(documento);
-                
+
                 // Muestro un mensaje con el número de usuarios registrados
                 int cuentaUsuarios = Usuario.usuariosBD.size();
-                JOptionPane.showMessageDialog(null, "El usuario fue registrado con éxito\n "
-                                            + "Existen " + cuentaUsuarios + " Usuarios");
+                JOptionPane.showMessageDialog(null, "El usuario fue registrado con éxito.\nExisten " + cuentaUsuarios + " Usuarios");
             }
+
             // Limpio los campos de entrada
             txtNombreUsuario.setText("");
             txtApellidoUsuario.setText("");

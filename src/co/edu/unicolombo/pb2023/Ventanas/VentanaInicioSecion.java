@@ -191,6 +191,10 @@ public class VentanaInicioSecion extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
+    private boolean ValidarEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        return email.matches(emailRegex);
+    }
     private void botonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEntrarActionPerformed
         // Recuperamos los datos del formulario
         String correo = txtCorreo.getText();
@@ -202,7 +206,11 @@ public class VentanaInicioSecion extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
             return; // Detener el flujo del método si hay campos vacíos
         }
-        
+        // verificxamos si el campo correo es valido
+        if (!ValidarEmail(correo)) {
+            JOptionPane.showMessageDialog(null, "El correo electrónico no puede estar vacío y debe ser válido.");
+            return; // Detecarner el flujo del metodo si el correo ingresado no tiene caracteresticas de ser un correo 
+        }
         // Intentamos buscar el usuario en el diccionario Map
         Usuario usuario = null;
         Map<String, Usuario> usuarioBd = Usuario.usuariosBD;

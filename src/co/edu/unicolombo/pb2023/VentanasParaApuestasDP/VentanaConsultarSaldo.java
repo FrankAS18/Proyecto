@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos;
+package co.edu.unicolombo.pb2023.VentanasParaApuestasDP;
 
 import co.edu.unicolombo.pb2023.Datos.Recarga_Retiro;
-import co.edu.unicolombo.pb2023.Ventanas.VentanaSegunda;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.table.DefaultTableModel;
@@ -129,9 +128,8 @@ public class VentanaConsultarSaldo extends javax.swing.JDialog {
 
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
         this.dispose();
-        VentanaSegunda ventana2 = new VentanaSegunda();
+        VentanaPrincipalParaApuestas_DP ventana2 = new VentanaPrincipalParaApuestas_DP(null, rootPaneCheckingEnabled);
         ventana2.setLocationRelativeTo(null);
-        ventana2.setExtendedState(VentanaSegunda.MAXIMIZED_BOTH);
         ventana2.setVisible(true);
     }//GEN-LAST:event_botonAtrasActionPerformed
 
@@ -177,6 +175,7 @@ public class VentanaConsultarSaldo extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentanaConsultarSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */

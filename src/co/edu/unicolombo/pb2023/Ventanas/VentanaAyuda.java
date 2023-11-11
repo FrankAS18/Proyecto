@@ -326,7 +326,7 @@ public class VentanaAyuda extends javax.swing.JDialog {
                 + "*Mauricioandresvergarafonck@gmail.com*\n"
                 + "*Franklin187@gmail.com*");
           try {
-            Desktop.getDesktop().browse( new URI("https://www.instagram.com"));
+            Desktop.getDesktop().browse( new URI("https://mail.google.com"));
         } catch (Exception e) {
             e.printStackTrace();
         }

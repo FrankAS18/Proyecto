@@ -128,11 +128,11 @@ public class VentanaReportePorRecarga extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
+        this.dispose();
         VentanaSegunda ventana2 = new VentanaSegunda();
         ventana2.setLocationRelativeTo(null);
         ventana2.setExtendedState(VentanaSegunda.MAXIMIZED_BOTH);
         ventana2.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_botonAtrasActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

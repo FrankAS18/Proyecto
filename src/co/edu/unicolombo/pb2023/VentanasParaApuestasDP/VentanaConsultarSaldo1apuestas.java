@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.unicolombo.pb2023.VentanasDeRecargar_RetirarSaldos;
+package co.edu.unicolombo.pb2023.VentanasParaApuestasDP;
 
 import co.edu.unicolombo.pb2023.Datos.Recarga_Retiro;
-import co.edu.unicolombo.pb2023.Ventanas.VentanaSegunda;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.swing.table.DefaultTableModel;
@@ -15,13 +14,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ASUS
  */
-public class VentanaConsultarSaldo extends javax.swing.JDialog {
+public class VentanaConsultarSaldo1apuestas extends javax.swing.JDialog {
 
 
     /**
      * Creates new form VentanaConsultarSaldo
      */
-    public VentanaConsultarSaldo(java.awt.Frame parent, boolean modal) {
+    public VentanaConsultarSaldo1apuestas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -129,9 +128,8 @@ public class VentanaConsultarSaldo extends javax.swing.JDialog {
 
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
         this.dispose();
-        VentanaSegunda ventana2 = new VentanaSegunda();
+        VentanaPrincipalParaApuestas_DP ventana2 = new VentanaPrincipalParaApuestas_DP(null, rootPaneCheckingEnabled);
         ventana2.setLocationRelativeTo(null);
-        ventana2.setExtendedState(VentanaSegunda.MAXIMIZED_BOTH);
         ventana2.setVisible(true);
     }//GEN-LAST:event_botonAtrasActionPerformed
 
@@ -169,20 +167,27 @@ public class VentanaConsultarSaldo extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaConsultarSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaConsultarSaldo1apuestas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaConsultarSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaConsultarSaldo1apuestas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaConsultarSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaConsultarSaldo1apuestas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaConsultarSaldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaConsultarSaldo1apuestas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                VentanaConsultarSaldo dialog = new VentanaConsultarSaldo(new javax.swing.JFrame(), true);
+                VentanaConsultarSaldo1apuestas dialog = new VentanaConsultarSaldo1apuestas(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

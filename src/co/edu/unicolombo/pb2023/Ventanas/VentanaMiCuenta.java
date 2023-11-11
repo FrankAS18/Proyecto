@@ -345,6 +345,12 @@ public class VentanaMiCuenta extends javax.swing.JDialog {
 
         return datosEditados;
     }
+        // Método para validar un correo electrónico utilizando expresiones regulares
+        private boolean ValidarEmail(String email) {
+            String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+            return email.matches(emailRegex);
+        }
+        
     private void botonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarActionPerformed
         // botonBuscarActionPerformed(evt);
         if (!seEditaronDatos()) {
@@ -377,33 +383,32 @@ public class VentanaMiCuenta extends javax.swing.JDialog {
         String apellidos = txtApellidoUsuario.getText();
         String telefono = txtTelefonoUsuario.getText();
         String documento = txtDocumentoUsuario.getText();
+        String correo = txtCorreoUsuario.getText();
         char[] contraseña = txtContraseñaUsuario.getPassword();
+        String clave = String.copyValueOf(contraseña);
         
-        // Verifico la longitud de los campos
-        if (nombres.matches("[a-zA-Z]+") || nombres.length() > 255) {
-            JOptionPane.showMessageDialog(null, "El nombre no puede superar los 255 caracteres y solo debe llevar letras.");
-            txtNombreUsuario.setText("");
-        } else if (apellidos.matches("[a-zA-Z]+") || apellidos.length() > 255) {
-            JOptionPane.showMessageDialog(null, "El apellido no puede superar los 255 caracteres y solo debe llevar letras.");
-            txtApellidoUsuario.setText("");
-        } else if (documento.matches("\\d+") || documento.length() > 20) { // Limito el documento a 20 caracteres
-            JOptionPane.showMessageDialog(null, "El número de documento no puede superar los 20 caracteres.");
-            txtDocumentoUsuario.setText("");
-        } else if (!telefono.matches("\\d{7,}") || telefono.length() > 15) {
-            JOptionPane.showMessageDialog(null, "El número de teléfono debe ser numérico y tener entre 7 y 15 caracteres.");
-            txtTelefonoUsuario.setText("");
-        } else if (nombres.isEmpty() || apellidos.isEmpty() || documento.isEmpty() ||
-                   telefono.isEmpty() || contraseña.length == 0) {
-            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos antes de editar la información.");
-        } else {
-            
+          // Verifico la longitud de los campos que se editaran y otros criterios
+            if (nombres.isEmpty() || !nombres.matches("[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ ]+") || nombres.length() > 255) {
+                JOptionPane.showMessageDialog(null, "El nombre no puede estar vacío, debe llevar solo letras y no superar los 255 caracteres.");
+            } else if (apellidos.isEmpty() || !apellidos.matches("[a-zA-ZáéíóúÁÉÍÓÚüÜñÑ ]+") || apellidos.length() > 255) {
+                JOptionPane.showMessageDialog(null, "El apellido no puede estar vacío, debe llevar solo letras y no superar los 255 caracteres.");
+            } else if (documento.isEmpty() || !documento.matches("\\d+") || documento.length() > 20) {
+                JOptionPane.showMessageDialog(null, "El número de documento no puede estar vacío, debe ser numérico y no superar los 20 caracteres.");
+            } else if (telefono.isEmpty() || !telefono.matches("\\d{7,}") || telefono.length() > 15) {
+                JOptionPane.showMessageDialog(null, "El número de teléfono no puede estar vacío, debe ser numérico y tener entre 7 y 15 caracteres.");
+            } else if (correo.isEmpty() || !ValidarEmail(correo)) {
+                JOptionPane.showMessageDialog(null, "El correo electrónico no puede estar vacío y debe ser válido.");
+            } else if (clave.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "La contraseña no puede estar vacía.");
+            } else {
+                
         // Canbiarle los datos al Usuario por los datos ingresados en el formulario
         usuarios.nombre = nombres;
         usuarios.apellidos = apellidos;
         usuarios.telefono = telefono;
         usuarios.documento = documento;
-        String clave = String.valueOf(contraseña);
         usuarios.contraseña = clave;
+        usuarios.correo = correo;
         
         // Mostrar mensaje
         Usuario.usuariosBD.put(usuarios.correo, usuarios);
