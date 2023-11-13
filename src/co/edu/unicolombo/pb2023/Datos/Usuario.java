@@ -15,7 +15,6 @@ public class Usuario {
     public String telefono;
     public String correo;
     public String contraseña;
-    public ArrayList<EventoDeportivo> eventosDeportivos = new ArrayList<>();
     
     public ArrayList<Recarga_Retiro> recargar_retirar = new ArrayList<>();
     

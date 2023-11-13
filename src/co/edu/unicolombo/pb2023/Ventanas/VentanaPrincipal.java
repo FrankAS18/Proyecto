@@ -97,11 +97,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         String nombre = JOptionPane.showInputDialog("Ingrese su nombre : ");
         String apellidos = JOptionPane.showInputDialog("Ingrese sus apellidos : ");
         JOptionPane.showMessageDialog(null, "...GRACIAS POR PRECIONAR CONTINUAR...");
-        JOptionPane.showMessageDialog(null, nombre +" "+ apellidos + " BIENVENID@ EN LA SIGUIENTE PANTALLA PODRAS VER \n"
+        JOptionPane.showMessageDialog(null, nombre +" "+ apellidos + " BIENVENID@ EN LAS SIGUIENTES PANTALLAS PODRAS EXPLORAR \n"
                                                               + "TODAS LAS FUNCIONALIDADES QUE TIENE NUESTRO PROYECTO,\n"
-                                                              + "NOS CARACTERIZAMOS POR HACER DE LA EXPERECIENSIA DE NUESTROS CLIENTES \n"
-                                                              + "UNA EXPERIENSIA UNICA, TAMBIEN POR HACER DE NUESTRO SOFTWARE UN USO PERSONAL \n"
-                                                              + "PARA QUIEN LO ABQUIERA \n");
+                                                              + "NOS CARACTERIZAMOS POR CREAR UNA EXPERIENCIA UNICA PARA NUESTROS CLIENTES, \n"
+                                                              + "TAMBIEN POR HACER DE NUESTRO SOFTWARE UN USO PERSONAL \n"
+                                                              + "PARA QUIEN LO ADQUIERA \n");
         this.dispose();
         VentanaInicioSecion inicio = new VentanaInicioSecion(this, rootPaneCheckingEnabled);
         inicio.setLocationRelativeTo(null);

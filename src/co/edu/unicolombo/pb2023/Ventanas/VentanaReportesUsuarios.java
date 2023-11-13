@@ -197,11 +197,13 @@ public class VentanaReportesUsuarios extends javax.swing.JDialog {
 
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
         // TODO add your handling code here:
+        this.dispose();
         VentanaSegunda ventana2 = new VentanaSegunda();
         ventana2.setLocationRelativeTo(null);
-        ventana2.setExtendedState(VentanaSegunda.MAXIMIZED_BOTH);
+        
+      //  ventana2.setExtendedState(VentanaSegunda.MAXIMIZED_BOTH);
+        
         ventana2.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_botonAtrasActionPerformed
 
     /**

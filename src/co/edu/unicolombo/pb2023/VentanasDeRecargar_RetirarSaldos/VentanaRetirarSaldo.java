@@ -334,11 +334,14 @@ public class VentanaRetirarSaldo extends javax.swing.JDialog {
     private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
      
         // Si el saldo está cargado, puedes cerrar la ventana actual y abrir la VentanaSegunda
+        this.dispose();
         VentanaSegunda ventana2 = new VentanaSegunda();
         ventana2.setLocationRelativeTo(null);
-        ventana2.setExtendedState(VentanaSegunda.MAXIMIZED_BOTH);
+        
+      //  ventana2.setExtendedState(VentanaSegunda.MAXIMIZED_BOTH);
+        
         ventana2.setVisible(true);
-        this.dispose();
+        
 
     }//GEN-LAST:event_botonAtrasActionPerformed
 

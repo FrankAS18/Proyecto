@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package co.edu.unicolombo.pb2023.Ventanas;
-import co.edu.unicolombo.pb2023.Datos.Usuario;
 import java.awt.Desktop;
 import java.net.URI;
-import java.util.Map;
 import javax.swing.JOptionPane;
 
 /**
@@ -251,7 +249,7 @@ public class VentanaAyuda extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Facebook)
                     .addComponent(Instagran, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -267,9 +265,7 @@ public class VentanaAyuda extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -326,7 +322,7 @@ public class VentanaAyuda extends javax.swing.JDialog {
                 + "*Mauricioandresvergarafonck@gmail.com*\n"
                 + "*Franklin187@gmail.com*");
           try {
-            Desktop.getDesktop().browse( new URI("https://www.instagram.com"));
+            Desktop.getDesktop().browse( new URI("https://mail.google.com"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -336,7 +332,7 @@ public class VentanaAyuda extends javax.swing.JDialog {
         // TODO add your handling code here:
         VentanaSegunda ventana = new VentanaSegunda();
         ventana.setLocationRelativeTo(null);
-        ventana.setExtendedState(VentanaSegunda.MAXIMIZED_BOTH);
+       // ventana.setExtendedState(VentanaSegunda.MAXIMIZED_BOTH);
         ventana.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
